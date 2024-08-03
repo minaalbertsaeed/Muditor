@@ -8,20 +8,16 @@ LDFLAGS = -L$(RAYLIB_DIR)/lib/ -Wl,-rpath=$(RAYLIB_DIR)/lib -lraylib -lGL -lm -l
 
 # Source files and output
 SRCS = src/main.c
-OBJS = $(SRCS:.c=.o)
 TARGET = src/main
 
 # Default target
 all: $(TARGET)
 
-$(TARGET): $(OBJS)
-	$(CC) $(OBJS) -o $(TARGET) $(LDFLAGS)
-
-%.o: %.c
-	$(CC) $(CFLAGS) $(INCLUDE_FLAGS) -c $< -o $@
+$(TARGET): $(SRCS)
+	$(CC) $(CFLAGS) $(INCLUDE_FLAGS) $(SRCS) -o $(TARGET) $(LDFLAGS)
 
 clean:
-	rm -f $(OBJS) $(TARGET)
+	rm -f $(TARGET)
 
 run: $(TARGET)
 	./$(TARGET)
