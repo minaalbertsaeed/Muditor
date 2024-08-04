@@ -1,5 +1,6 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -std=c99
+CPPFLAGS = -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=700L
+CFLAGS = -Wall -Wextra -o3 -g -std=c99  $(CPPFLAGS)
 
 # Raylib location (adjust as needed)
 RAYLIB_DIR = ./raylib-5.0_linux_amd64
@@ -8,7 +9,7 @@ LDFLAGS = -L$(RAYLIB_DIR)/lib/ -Wl,-rpath=$(RAYLIB_DIR)/lib -lraylib -lGL -lm -l
 
 # Source files and output
 SRCS = src/main.c
-TARGET = src/main
+TARGET = muditor
 
 # Default target
 all: $(TARGET)
