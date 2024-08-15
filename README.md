@@ -22,8 +22,8 @@ Only Unix-like systems will be supported in the near and far future; Windows wil
 
 
 ## TODO
-- [x] Implementing FFT
+- [x] Implement FFT
 - [ ] Apply [X-Macros](https://en.wikipedia.org/wiki/X_macro) in libmuditor 
-- [ ] Applying [Hann Function](https://en.wikipedia.org/wiki/Window_function#Hann_and_Hamming_windows) to audio samples 
+- [ ] Apply [Hann Function](https://en.wikipedia.org/wiki/Window_function#Hann_and_Hamming_windows) to audio samples 
 - [ ] Apply Drag and Drop instead of command line arguments
 - [ ] Use Shaders and Textures stuff (I know nothing about yet)
