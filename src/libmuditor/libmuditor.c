@@ -40,7 +40,7 @@ void fft(float in[], cplx out[], size_t step, size_t N){
 }
 
 void muditor_init (Muditor* muditor){
-    muditor->music = LoadMusicStream("/home/mina/repos/Muditor/music/Spektrem - Shine ｜ Progressive House ｜ NCS - Copyright Free Music [n4tK7LYFxI0].ogg");
+    // muditor->music = LoadMusicStream("/home/mina/repos/Muditor/music/Spektrem - Shine ｜ Progressive House ｜ NCS - Copyright Free Music [n4tK7LYFxI0].ogg");
     SetMusicVolume(muditor->music, 0.3f);
     PlayMusicStream(muditor->music);
     AttachAudioStreamProcessor(muditor->music.stream , audioCallBack);
@@ -74,27 +74,11 @@ void muditor_renderframe(Muditor* muditor){
         BeginDrawing();
             ClearBackground(MYCOLOR);
 
-            // if(IsMusicStreamPlaying(music)){
-            //     DrawText("Press Space to pause", w/3, 3*h/4, 20, RAYWHITE);
-            // }else {
-            //     DrawText("Press Space to continue", w/3, 3*h/4, 20, RAYWHITE);
-            // }
-
             float cell_width = (float)w/ SAMPLES_NO;
             for (size_t i = 0; i < SAMPLES_NO; i++) {
                     float t = ampl(out[i]) ;
-                    DrawRectangle(i*cell_width, h/1 - (float)h/4.0*t, 4, (float)h/2.0*t, RED);
+                    DrawRectangle(i*cell_width, h/1 - (float)h/4.0*t, 4, (float)h/2.0*t, RAYWHITE);
             }
-            /* printing samples of one channel*/
-            // for(size_t i = 0; i < global_frames_count; ++i ){
-            //     float t = global_frames[i].left;
-            //     if (t > 0) {
-            //     }
-            //     else {
-            //         DrawRectangle(i*cell_width, h/2, 1, h/2*t, RAYWHITE);
-            //     }
-            //
-            // }
 
         EndDrawing();
         /*----------------------------------------------------------------------------------*/

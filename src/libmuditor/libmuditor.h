@@ -22,9 +22,17 @@ typedef struct {
 typedef float complex cplx;
 
 typedef struct {
-    Music music
+    Music music;
 }Muditor;
 
+// symbols_table -> 
+#define SYMBOLS_NO 2
+
+#define MUDITOR_INIT 0
+#define MUDITOR_RENDERFRAME 1
+
+char *symbols_table [SYMBOLS_NO]= { "muditor_init", "muditor_renderframe"};
+void *fp_table[SYMBOLS_NO]= {0};
 
 const char *libmuditor_name = "libmuditor.so";
 float in[SAMPLES_NO] = {0};
