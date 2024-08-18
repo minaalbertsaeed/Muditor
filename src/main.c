@@ -10,7 +10,7 @@
 static const size_t Width = 800;
 static const size_t Height = 600;
 
-void *libmuditor = NULL;
+void *libmuditor = NULL;        
 Muditor muditor = {0};
 
 /* Functions Declaration*/
@@ -25,17 +25,6 @@ bool reload_muditor(const char* libmuditor_path){
         return false;
     }
 
-    // muditor_init = dlsym(libmuditor, "muditor_init");
-    // if(muditor_init == NULL){
-    //     dprintf(STDERR_FILENO, "Cannot open the %s, %s\n", "muditor_init", dlerror());
-    //     return false;
-    // }
-    //
-    // muditor_renderframe = dlsym(libmuditor, "muditor_renderframe");
-    // if(muditor_renderframe == NULL){
-    //     dprintf(STDERR_FILENO, "Cannot open the %s, %s\n", "muditor_renderframe", dlerror());
-    //     return false;
-    // }
     for (size_t i = 0; i < SYMBOLS_NO; i++) {
         fp_table[i] = dlsym(libmuditor, symbols_table[i]);
         if (fp_table[i] == NULL) {
